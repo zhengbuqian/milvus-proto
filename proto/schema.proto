@@ -130,6 +130,7 @@ message VectorField {
     FloatArray float_vector = 2;
     bytes binary_vector = 3;
     bytes float16_vector = 4;
+    bytes sparse_float_vector = 5;
   }
 }
 
