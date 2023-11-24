@@ -126,12 +126,12 @@ message ScalarField {
 
 // beta, api may change
 message SparseFloatArray {
-  int64 rows = 1;
-  int64 dim = 2;
+  int32 rows = 1;
+  int32 dim = 2;
   // non zero values
-  int64 nnz = 3;
+  int32 nnz = 3;
   // len(indptr) == rows + 1
-  LongArray indptr = 4;
+  IntArray indptr = 4;
   // len(indices) == nnz
   IntArray indices = 5;
   // len(data) == nnz
