@@ -1236,7 +1236,9 @@ func (m *Blob) GetValue() []byte {
 type PlaceholderValue struct {
 	Tag  string          `protobuf:"bytes,1,opt,name=tag,proto3" json:"tag,omitempty"`
 	Type PlaceholderType `protobuf:"varint,2,opt,name=type,proto3,enum=milvus.proto.common.PlaceholderType" json:"type,omitempty"`
-	// values is a 2d-array, every array contains a vector
+	// dense vector: values is a 2d-array of nq rows, every row contains a query vector
+	// sparse vector: values contains exactly 1 row, which is the CSR representation
+	// of all query vectors.
 	Values               [][]byte `protobuf:"bytes,3,rep,name=values,proto3" json:"values,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`

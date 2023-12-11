@@ -137,7 +137,9 @@ enum PlaceholderType {
 message PlaceholderValue {
     string tag = 1;
     PlaceholderType type = 2;
-    // values is a 2d-array, every array contains a vector
+    // dense vector: values is a 2d-array of nq rows, every row contains a query vector
+    // sparse vector: values contains exactly 1 row, which is the CSR representation
+    // of all query vectors.
     repeated bytes values = 3;
 }
 

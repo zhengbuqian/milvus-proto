@@ -124,21 +124,25 @@ message ScalarField {
   }
 }
 
+message SparseFloatRow {
+  // dim is the max dimension of the current vector
+  int32 dim = 1;
+  // len(indices) == len(values)
+  IntArray indices = 2;
+  FloatArray values = 2;
+}
+
 // beta, api may change
 message SparseFloatArray {
-  int32 rows = 1;
-  int32 dim = 2;
-  // non zero values
-  int32 nnz = 3;
-  // len(indptr) == rows + 1
-  IntArray indptr = 4;
-  // len(indices) == nnz
-  IntArray indices = 5;
-  // len(data) == nnz
-  FloatArray data = 6;
+  // dim is the max dimension of the current batch of vectors
+  int32 dim = 1;
+  // nnz is the number of non-zero values of all vectors in the current batch
+  int32 nnz = 2;
+  repeated SparseFloatRow contents = 2;
 }
 
 message VectorField {
+  // For sparse vector, dim is the max dimension of the current batch of vectors
   int64 dim = 1;
   oneof data {
     FloatArray float_vector = 2;
