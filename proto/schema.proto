@@ -129,7 +129,7 @@ message SparseFloatRow {
   int32 dim = 1;
   // len(indices) == len(values)
   IntArray indices = 2;
-  FloatArray values = 2;
+  FloatArray values = 3;
 }
 
 // beta, api may change
@@ -138,7 +138,7 @@ message SparseFloatArray {
   int32 dim = 1;
   // nnz is the number of non-zero values of all vectors in the current batch
   int32 nnz = 2;
-  repeated SparseFloatRow contents = 2;
+  repeated SparseFloatRow contents = 3;
 }
 
 message VectorField {
