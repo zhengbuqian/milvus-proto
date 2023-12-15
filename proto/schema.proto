@@ -127,7 +127,7 @@ message ScalarField {
 message SparseFloatRow {
   // dim is the max dimension of the current vector
   int32 dim = 1;
-  // len(indices) == len(values)
+  // len(indices) == len(values), indices must be sorted
   IntArray indices = 2;
   FloatArray values = 3;
 }

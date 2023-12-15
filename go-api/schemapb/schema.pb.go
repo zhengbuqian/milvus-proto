@@ -1039,7 +1039,7 @@ func (*ScalarField) XXX_OneofWrappers() []interface{} {
 type SparseFloatRow struct {
 	// dim is the max dimension of the current vector
 	Dim int32 `protobuf:"varint,1,opt,name=dim,proto3" json:"dim,omitempty"`
-	// len(indices) == len(values)
+	// len(indices) == len(values), indices must be sorted
 	Indices              *IntArray   `protobuf:"bytes,2,opt,name=indices,proto3" json:"indices,omitempty"`
 	Values               *FloatArray `protobuf:"bytes,3,opt,name=values,proto3" json:"values,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
