@@ -127,10 +127,8 @@ message ScalarField {
 }
 
 message SparseFloatRow {
-  // len(indices) == len(values)
-  // data in indices and values must be sorted by the index
-  IntArray indices = 1;
-  FloatArray values = 2;
+  // densely packed indices and values
+  bytes data = 1;
 }
 
 // beta, api may change
