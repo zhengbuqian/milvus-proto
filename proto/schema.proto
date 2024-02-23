@@ -126,14 +126,9 @@ message ScalarField {
   }
 }
 
-message SparseFloatRow {
-  // densely packed indices and values
-  bytes data = 1;
-}
-
 // beta, api may change
 message SparseFloatArray {
-  repeated SparseFloatRow contents = 1;
+  repeated bytes contents = 1;
   // dim is the max dimension of the current batch of vectors
   int64 dim = 2;
 }
